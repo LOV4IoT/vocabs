@@ -1,0 +1,3547 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix traffic: <http://purl.org/iot/vocab/traffic> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+
+<http://purl.org/iot/vocab/traffic>
+  a owl:Ontology, owl:NamedIndividual, <http://purl.org/vocommons/voaf#Vocabulary> ;
+  owl:versionInfo 1.0 ;
+  dc:issued "2012-01-21"^^xsd:date ;
+  dc:modified "2012-09-07"^^xsd:date ;
+  vann:preferredNamespaceUri "http://purl.org/iot/vocab/traffic#" ;
+  vann:preferredNamespacePrefix "traffic" ;
+  rdfs:comment " An ontology to describe the management of the traffic" ;
+  dcterms:description "A traffic ontology that describes the management of the traffic in a straight road with two lanes, both in the same direction. The situation is an ambulance trying to overtake all the other cars and they have to modify their speed and positions in order to able the ambulance to pass as fast as possible."@en ;
+  skos:historyNote "Ontology extracted from the paper Ontology Based Road Traffic Management. [Bermejo, A.J. et al. 2012] "@en ;
+  dcterms:title "Road Traffic Management"@en ;
+  cc:license <http://creativecommons.org/licenses/by/3.0/> ;
+  dc:source <http://link.springer.com/chapter/10.1007%2F978-3-642-32524-3_14> ;
+  dc:creator <mailto:alberto.cordoba@unavarra.es>, <mailto:antoniojesus.bermejo@unavarra.es>, <mailto:jesusv@unavarra.es>, <mailto:josej.astrain@unavarra.es> .
+
+<http://purl.org/iot/vocab/traffic#beforeTheGap>
+  a owl:AnnotationProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#position> ;
+  rdfs:range xsd:boolean .
+
+<http://purl.org/iot/vocab/traffic#bigSpeedDifference>
+  a owl:AnnotationProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#speedWith> ;
+  rdfs:range xsd:boolean .
+
+<http://purl.org/iot/vocab/traffic#hasSpaceAhead>
+  a owl:AnnotationProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#hasSpace> ;
+  rdfs:range xsd:boolean .
+
+<http://purl.org/iot/vocab/traffic#hasSpaceBehind>
+  a owl:AnnotationProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#hasSpace> ;
+  rdfs:range xsd:boolean .
+
+<http://purl.org/iot/vocab/traffic#hasSpaceLateral>
+  a owl:AnnotationProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#hasSpace> ;
+  rdfs:range xsd:boolean .
+
+<http://purl.org/iot/vocab/traffic#isInFrontOfOvertaker>
+  a owl:AnnotationProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#position> ;
+  rdfs:range xsd:boolean .
+
+<http://purl.org/iot/vocab/traffic#isOvertaking>
+  a owl:AnnotationProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#position> ;
+  rdfs:range xsd:boolean .
+
+<http://purl.org/iot/vocab/traffic#lastFirstBeforeAfter-TheGap>
+  a owl:AnnotationProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#position> ;
+  rdfs:range xsd:boolean .
+
+<http://purl.org/iot/vocab/traffic#speedWithBeforeTheGapCar>
+  a owl:AnnotationProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#speedWith> ;
+  rdfs:range [
+    a rdfs:Datatype ;
+    owl:oneOf (
+     "1"^^xsd:int
+     "2"^^xsd:int
+     "3"^^xsd:int
+   )
+  ] .
+
+<http://www.traffic.com/ontologies/a.owl#hasSpaceAhead> a owl:AnnotationProperty .
+<http://www.traffic.com/ontologies/a.owl#hasSpaceBehind> a owl:AnnotationProperty .
+<http://www.traffic.com/ontologies/a.owl#hasSpaceLateral> a owl:AnnotationProperty .
+<http://www.traffic.com/ontologies/a.owl#isInFrontOfOvertaker> a owl:AnnotationProperty .
+<http://www.traffic.com/ontologies/a.owl#isOvertaking> a owl:AnnotationProperty .
+<http://www.w3org/2003/06/sw-vocab-status/ns#term_status> a owl:AnnotationProperty .
+foaf:name a owl:AnnotationProperty .
+<http://purl.org/iot/vocab/traffic#doesAction>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:FunctionalProperty, owl:IrreflexiveProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> .
+
+<http://purl.org/iot/vocab/traffic#isActionDoneBy>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:InverseFunctionalProperty, owl:IrreflexiveProperty ;
+  rdfs:range <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  owl:inverseOf <http://purl.org/iot/vocab/traffic#doesAction> .
+
+<http://purl.org/iot/vocab/traffic#hasDirectionValue>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#movement> ;
+  rdfs:range rdfs:Literal .
+
+<http://purl.org/iot/vocab/traffic#hasSpace> a owl:DatatypeProperty .
+<http://purl.org/iot/vocab/traffic#hasSpeedValue>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#movement> ;
+  rdfs:range xsd:nonNegativeInteger .
+
+<http://purl.org/iot/vocab/traffic#hasXValue>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#position> ;
+  rdfs:range xsd:integer .
+
+<http://purl.org/iot/vocab/traffic#hasYValue>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#position> ;
+  rdfs:range xsd:integer .
+
+<http://purl.org/iot/vocab/traffic#movement> a owl:DatatypeProperty .
+<http://purl.org/iot/vocab/traffic#position> a owl:DatatypeProperty .
+<http://purl.org/iot/vocab/traffic#speedWith> a owl:DatatypeProperty .
+<http://purl.org/iot/vocab/traffic#speedWithAheadCar>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#speedWith> ;
+  rdfs:range [
+    a rdfs:Datatype ;
+    owl:oneOf (
+     "1"^^xsd:int
+     "2"^^xsd:int
+     "3"^^xsd:int
+   )
+  ] .
+
+<http://purl.org/iot/vocab/traffic#speedWithBehindCar>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#speedWith> ;
+  rdfs:range [
+    a rdfs:Datatype ;
+    owl:oneOf (
+     "1"^^xsd:int
+     "2"^^xsd:int
+     "3"^^xsd:int
+   )
+  ] .
+
+<http://purl.org/iot/vocab/traffic#speedWithOvertaker>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  rdfs:subPropertyOf <http://purl.org/iot/vocab/traffic#speedWith> ;
+  rdfs:range [
+    a rdfs:Datatype ;
+    owl:oneOf (
+     "1"^^xsd:int
+     "2"^^xsd:int
+     "3"^^xsd:int
+   )
+  ] .
+
+<http://purl.org/vocommons/voaf#Vocabulary> a owl:Class .
+<http://purl.org/vocommons/voaf#VocabularySpace>
+  a owl:Class ;
+  rdfs:label "Vocabulary Space"@en ;
+  rdfs:comment """Dublin Core properties isPartOf and hasPart are used to link a vocabulary to a 
+vocabulary space""", """A vocabulary space defines any relevant grouping of vocabularies 
+e.g., designed for similar purposes or domains, or designed by the same publisher or the same project, etc.
+    A vocabulary can belong to zero, one or more vocabulary spaces."""@en ;
+  rdfs:isDefinedBy <http://purl.org/vocommons/voaf#> .
+
+<http://purl.org/iot/vocab/traffic#Accelerate>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Action> .
+
+<http://purl.org/iot/vocab/traffic#Action>
+  a owl:Class ;
+  rdfs:subClassOf owl:Thing, [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/traffic#isActionDoneBy> ;
+    owl:someValuesFrom <http://purl.org/iot/vocab/traffic#Vehicle>
+  ] .
+
+<http://purl.org/iot/vocab/traffic#AfterGap>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Position> .
+
+<http://purl.org/iot/vocab/traffic#Ahead>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Space> .
+
+<http://purl.org/iot/vocab/traffic#BeforeGap>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Position> .
+
+<http://purl.org/iot/vocab/traffic#Behind>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Space> .
+
+<http://purl.org/iot/vocab/traffic#ChangeLine>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Action> .
+
+<http://purl.org/iot/vocab/traffic#Decelerate>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Action> .
+
+<http://purl.org/iot/vocab/traffic#FirstAfterGap>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Position> .
+
+<http://purl.org/iot/vocab/traffic#LastBeforeGap>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Position> .
+
+<http://purl.org/iot/vocab/traffic#Lateral>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Space> .
+
+<http://purl.org/iot/vocab/traffic#MaintainDistanceWithCarInFront>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Action> .
+
+<http://purl.org/iot/vocab/traffic#MaintainSpeed>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Action> .
+
+<http://purl.org/iot/vocab/traffic#NoSpace>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Space> .
+
+<http://purl.org/iot/vocab/traffic#NotOvertaker>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Vehicle> .
+
+<http://purl.org/iot/vocab/traffic#Overtaker>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Vehicle> .
+
+<http://purl.org/iot/vocab/traffic#Position>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Vehicle> .
+
+<http://purl.org/iot/vocab/traffic#SoftAccelerate>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Action> .
+
+<http://purl.org/iot/vocab/traffic#SoftDecelerate>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/traffic#Action> .
+
+<http://purl.org/iot/vocab/traffic#Space> a owl:Class .
+<http://purl.org/iot/vocab/traffic#Vehicle>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/traffic#doesAction> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ] .
+
+foaf:Organization a owl:Class .
+foaf:Person a owl:Class .
+<http://www.unavarra.es> a owl:NamedIndividual, foaf:Organization .
+<http://purl.org/vocommons/voaf> a owl:NamedIndividual, <http://purl.org/vocommons/voaf#Vocabulary> .
+<http://purl.org/iot/vocab/traffic#Car1>
+  a owl:NamedIndividual, <http://purl.org/iot/vocab/traffic#Vehicle> ;
+  ns1:speedWithBeforeTheGapCar 2 ;
+  ns1:isOvertaking false ;
+  ns1:hasSpaceLateral false ;
+  ns1:hasSpaceBehind false ;
+  ns1:bigSpeedDifference false ;
+  ns1:isInFrontOfOvertaker false ;
+  ns1:lastFirstBeforeAfter-TheGap true ;
+  ns1:hasSpaceAhead true ;
+  ns1:beforeTheGap true .
+
+ns1:Car2
+  a owl:NamedIndividual, ns1:Vehicle ;
+  ns1:speedWithBeforeTheGapCar 1 ;
+  ns1:bigSpeedDifference false ;
+  ns1:hasSpaceBehind false ;
+  ns1:hasSpaceLateral false ;
+  ns1:isOvertaking false ;
+  ns1:beforeTheGap false ;
+  ns1:hasSpaceAhead true ;
+  ns1:lastFirstBeforeAfter-TheGap true ;
+  ns1:isInFrontOfOvertaker true .
+
+ns1:Car3
+  a owl:NamedIndividual, ns1:Vehicle ;
+  ns1:speedWithBeforeTheGapCar 3 ;
+  ns1:hasSpaceLateral false ;
+  ns1:lastFirstBeforeAfter-TheGap false ;
+  ns1:beforeTheGap false ;
+  ns1:isOvertaking false ;
+  ns1:hasSpaceBehind false ;
+  ns1:bigSpeedDifference false ;
+  ns1:hasSpaceAhead true ;
+  ns1:isInFrontOfOvertaker true .
+
+ns1:Car4
+  a owl:NamedIndividual, ns1:Vehicle ;
+  ns1:speedWithBeforeTheGapCar 3 ;
+  ns1:bigSpeedDifference false ;
+  ns1:hasSpaceBehind false ;
+  ns1:hasSpaceLateral false ;
+  ns1:isInFrontOfOvertaker false ;
+  ns1:isOvertaking true ;
+  ns1:hasSpaceAhead true .
+
+<http://www.unavarra.es/foaf/unavarra.rdf#A.Cordoba> a owl:NamedIndividual, foaf:Person .
+<http://www.unavarra.es/foaf/unavarra.rdf#A.J.Bermejo> a owl:NamedIndividual, foaf:Person .
+<http://www.unavarra.es/foaf/unavarra.rdf#J.J.Astrain> a owl:NamedIndividual, foaf:Person .
+<http://www.unavarra.es/foaf/unavarra.rdf#J.Villadangos> a owl:NamedIndividual, foaf:Person .
+<mailto:alberto.cordoba@unavarra.es>
+  a owl:NamedIndividual, foaf:Person ;
+  foaf:name "A. Cordoba" .
+
+<mailto:antoniojesus.bermejo@unavarra.es>
+  a owl:NamedIndividual, foaf:Person ;
+  foaf:name "A. J. Bermejo" .
+
+<mailto:jesusv@unavarra.es>
+  a owl:NamedIndividual, foaf:Person ;
+  foaf:name "J. Villadangos" .
+
+<mailto:josej.astrain@unavarra.es>
+  a owl:NamedIndividual, foaf:Person ;
+  foaf:name "J. J. Astrain" .
+
+ns1:c a <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#c> a <http://www.w3.org/2003/11/swrl#Variable> .
+[]
+  a <http://www.w3.org/2003/11/swrl#Imp> ;
+  swrl:body (
+   _:genid29
+   _:genid22
+   _:genid28
+   _:genid27
+   _:genid26
+ ) ;
+  swrl:head ( _:genid31 ) .
+
+_:genid22
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid26
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid27
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid28
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid29
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid31
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid34
+   _:genid40
+   _:genid37
+   _:genid39
+ ) ;
+  swrl:head ( _:genid42 ) .
+
+_:genid34
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid37
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid39
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid40
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid42
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid45 ) ;
+  swrl:body (
+   _:genid55
+   _:genid54
+   _:genid53
+   _:genid52
+   _:genid51
+ ) .
+
+_:genid45
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid51
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid52
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+
+_:genid53
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid54
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid55
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid58
+   _:genid60
+   _:genid64
+   _:genid63
+ ) ;
+  swrl:head ( _:genid66 ) .
+
+_:genid58
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid60
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:LastBeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid63
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithOvertaker .
+
+_:genid64
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid66
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid71
+   _:genid70
+ ) ;
+  swrl:head ( _:genid73 ) .
+
+_:genid70
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:lastFirstBeforeAfter-TheGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid71
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:beforeTheGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid73
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid76 ) ;
+  swrl:body (
+   _:genid78
+   _:genid80
+ ) .
+
+_:genid76
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid78
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:hasSpaceAhead ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid80
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:hasSpaceLateral ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid89
+   _:genid84
+   _:genid86
+   _:genid88
+ ) ;
+  swrl:head ( _:genid91 ) .
+
+_:genid84
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid86
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid88
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid89
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid91
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid94
+   _:genid102
+   _:genid97
+   _:genid99
+   _:genid101
+ ) ;
+  swrl:head ( _:genid104 ) .
+
+_:genid94
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid97
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid99
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid101
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid102
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid104
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid107
+   _:genid109
+ ) ;
+  swrl:head ( _:genid111 ) .
+
+_:genid107
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid109
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid111
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:ChangeLine ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid114 ) ;
+  swrl:body (
+   _:genid124
+   _:genid117
+   _:genid119
+   _:genid121
+   _:genid123
+ ) .
+
+_:genid114
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid117
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid119
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid121
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid123
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid124
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid135
+   _:genid134
+   _:genid129
+   _:genid133
+   _:genid132
+ ) ;
+  swrl:head ( _:genid137 ) .
+
+_:genid129
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid132
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid133
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid134
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid135
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+_:genid137
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid148
+   _:genid147
+   _:genid142
+   _:genid146
+   _:genid145
+ ) ;
+  swrl:head ( _:genid150 ) .
+
+_:genid142
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid145
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid146
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid147
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid148
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid150
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid155
+   _:genid154
+ ) ;
+  swrl:head ( _:genid157 ) .
+
+_:genid154
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:lastFirstBeforeAfter-TheGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid155
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:beforeTheGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid157
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid168
+   _:genid161
+   _:genid163
+   _:genid167
+   _:genid166
+ ) ;
+  swrl:head ( _:genid170 ) .
+
+_:genid161
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid163
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid166
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid167
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid168
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid170
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid173 ) ;
+  swrl:body (
+   _:genid175
+   _:genid183
+   _:genid178
+   _:genid180
+   _:genid182
+ ) .
+
+_:genid173
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid175
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+_:genid178
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid180
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid182
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid183
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid188
+   _:genid187
+ ) ;
+  swrl:head ( _:genid190 ) .
+
+_:genid187
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:lastFirstBeforeAfter-TheGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid188
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:beforeTheGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid190
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid193 ) ;
+  swrl:body (
+   _:genid195
+   _:genid197
+ ) .
+
+_:genid193
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:LastBeforeGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid195
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:beforeTheGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid197
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:lastFirstBeforeAfter-TheGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid200 ) ;
+  swrl:body (
+   _:genid202
+   _:genid210
+   _:genid209
+   _:genid206
+   _:genid208
+ ) .
+
+_:genid200
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid202
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid206
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid208
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid209
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid210
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid213 ) ;
+  swrl:body (
+   _:genid223
+   _:genid216
+   _:genid222
+   _:genid221
+   _:genid220
+ ) .
+
+_:genid213
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid216
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid220
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid221
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid222
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid223
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid230
+   _:genid227
+   _:genid229
+ ) ;
+  swrl:head ( _:genid232 ) .
+
+_:genid227
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:hasSpaceBehind ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid229
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:hasSpaceLateral ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid230
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:hasSpaceAhead ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid232
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid235
+   _:genid237
+   _:genid239
+   _:genid243
+   _:genid242
+ ) ;
+  swrl:head ( _:genid245 ) .
+
+_:genid235
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+_:genid237
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid239
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid242
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid243
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid245
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid248
+   _:genid250
+   _:genid252
+ ) ;
+  swrl:head ( _:genid254 ) .
+
+_:genid248
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid250
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid252
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:isInFrontOfOvertaker ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid254
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid257
+   _:genid259
+   _:genid265
+   _:genid264
+   _:genid263
+ ) ;
+  swrl:head ( _:genid267 ) .
+
+_:genid257
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid259
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid263
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithOvertaker .
+
+_:genid264
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid265
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid267
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid270 ) ;
+  swrl:body (
+   _:genid278
+   _:genid273
+   _:genid275
+   _:genid277
+ ) .
+
+_:genid270
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+_:genid273
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid275
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid277
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid278
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid287
+   _:genid286
+   _:genid285
+   _:genid284
+ ) ;
+  swrl:head ( _:genid289 ) .
+
+_:genid284
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid285
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid286
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid287
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid289
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid298
+   _:genid293
+   _:genid297
+   _:genid296
+ ) ;
+  swrl:head ( _:genid300 ) .
+
+_:genid293
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid296
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid297
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid298
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid300
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid311
+   _:genid304
+   _:genid310
+   _:genid309
+   _:genid308
+ ) ;
+  swrl:head ( _:genid313 ) .
+
+_:genid304
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid308
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid309
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid310
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid311
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid313
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid316 ) ;
+  swrl:body (
+   _:genid326
+   _:genid325
+   _:genid320
+   _:genid324
+   _:genid323
+ ) .
+
+_:genid316
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid320
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid323
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid324
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+
+_:genid325
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid326
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid329
+   _:genid331
+ ) ;
+  swrl:head ( _:genid333 ) .
+
+_:genid329
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Vehicle ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid331
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:isOvertaking ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid333
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid336 ) ;
+  swrl:body (
+   _:genid346
+   _:genid339
+   _:genid345
+   _:genid344
+   _:genid343
+ ) .
+
+_:genid336
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid339
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid343
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid344
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid345
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid346
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid349 ) ;
+  swrl:body (
+   _:genid359
+   _:genid358
+   _:genid357
+   _:genid354
+   _:genid356
+ ) .
+
+_:genid349
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid354
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid356
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid357
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid358
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid359
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid366
+   _:genid363
+   _:genid365
+ ) ;
+  swrl:head ( _:genid368 ) .
+
+_:genid363
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:hasSpaceBehind ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid365
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:hasSpaceLateral ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid366
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:hasSpaceAhead ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid368
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid371
+   _:genid379
+   _:genid374
+   _:genid378
+   _:genid377
+ ) ;
+  swrl:head ( _:genid381 ) .
+
+_:genid371
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid374
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid377
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid378
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid379
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid381
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid384
+   _:genid386
+   _:genid390
+   _:genid389
+ ) ;
+  swrl:head ( _:genid392 ) .
+
+_:genid384
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid386
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid389
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid390
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid392
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid403
+   _:genid402
+   _:genid401
+   _:genid398
+   _:genid400
+ ) ;
+  swrl:head ( _:genid405 ) .
+
+_:genid398
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid400
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithOvertaker .
+
+_:genid401
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid402
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid403
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid405
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid408 ) ;
+  swrl:body (
+   _:genid416
+   _:genid411
+   _:genid415
+   _:genid414
+ ) .
+
+_:genid408
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainDistanceWithCarInFront ;
+  swrl:argument1 ns1:c .
+
+_:genid411
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid414
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid415
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid416
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:LastBeforeGap ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid427
+   _:genid420
+   _:genid422
+   _:genid426
+   _:genid425
+ ) ;
+  swrl:head ( _:genid429 ) .
+
+_:genid420
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid422
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid425
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid426
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid427
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid429
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid438
+   _:genid433
+   _:genid435
+   _:genid437
+ ) ;
+  swrl:head ( _:genid440 ) .
+
+_:genid433
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid435
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid437
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "faster"^^xsd:string ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid438
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid440
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid449
+   _:genid444
+   _:genid446
+   _:genid448
+ ) ;
+  swrl:head ( _:genid451 ) .
+
+_:genid444
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:LastBeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid446
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid448
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithOvertaker .
+
+_:genid449
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid451
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid464
+   _:genid463
+   _:genid456
+   _:genid462
+   _:genid459
+   _:genid461
+ ) ;
+  swrl:head ( _:genid466 ) .
+
+_:genid456
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid459
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+
+_:genid461
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid462
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid463
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid464
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid466
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid469 ) ;
+  swrl:body (
+   _:genid477
+   _:genid472
+   _:genid474
+   _:genid476
+ ) .
+
+_:genid469
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+_:genid472
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid474
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid476
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid477
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid480 ) ;
+  swrl:body (
+   _:genid482
+   _:genid484
+   _:genid490
+   _:genid489
+   _:genid488
+ ) .
+
+_:genid480
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid482
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid484
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid488
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid489
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+
+_:genid490
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid499
+   _:genid494
+   _:genid498
+   _:genid497
+ ) ;
+  swrl:head ( _:genid501 ) .
+
+_:genid494
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid497
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid498
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid499
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+_:genid501
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid504 ) ;
+  swrl:body (
+   _:genid514
+   _:genid507
+   _:genid509
+   _:genid513
+   _:genid512
+ ) .
+
+_:genid504
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid507
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid509
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid512
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid513
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid514
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid523
+   _:genid522
+   _:genid521
+   _:genid520
+ ) ;
+  swrl:head ( _:genid525 ) .
+
+_:genid520
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid521
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid522
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid523
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid525
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid528
+   _:genid530
+   _:genid532
+   _:genid536
+   _:genid535
+ ) ;
+  swrl:head ( _:genid538 ) .
+
+_:genid528
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid530
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid532
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid535
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid536
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid538
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid541
+   _:genid543
+   _:genid545
+   _:genid547
+ ) ;
+  swrl:head ( _:genid549 ) .
+
+_:genid541
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid543
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid545
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid547
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid549
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid552 ) ;
+  swrl:body (
+   _:genid560
+   _:genid555
+   _:genid557
+   _:genid559
+ ) .
+
+_:genid552
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainDistanceWithCarInFront ;
+  swrl:argument1 ns1:c .
+
+_:genid555
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:LastBeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid557
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid559
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid560
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid569
+   _:genid568
+   _:genid565
+   _:genid567
+ ) ;
+  swrl:head ( _:genid571 ) .
+
+_:genid565
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid567
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid568
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid569
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid571
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid574 ) ;
+  swrl:body (
+   _:genid582
+   _:genid577
+   _:genid579
+   _:genid581
+ ) .
+
+_:genid574
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+_:genid577
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid579
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid581
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid582
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid595
+   _:genid594
+   _:genid587
+   _:genid593
+   _:genid590
+   _:genid592
+ ) ;
+  swrl:head ( _:genid597 ) .
+
+_:genid587
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid590
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+
+_:genid592
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid593
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid594
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid595
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid597
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid606
+   _:genid601
+   _:genid603
+   _:genid605
+ ) ;
+  swrl:head ( _:genid608 ) .
+
+_:genid601
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid603
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid605
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid606
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid608
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid611 ) ;
+  swrl:body (
+   _:genid621
+   _:genid620
+   _:genid615
+   _:genid619
+   _:genid618
+ ) .
+
+_:genid611
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid615
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid618
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid619
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid620
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid621
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid624 ) ;
+  swrl:body (
+   _:genid634
+   _:genid627
+   _:genid629
+   _:genid633
+   _:genid632
+ ) .
+
+_:genid624
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid627
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid629
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid632
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid633
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid634
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid637
+   _:genid645
+   _:genid644
+   _:genid643
+   _:genid642
+ ) ;
+  swrl:head ( _:genid647 ) .
+
+_:genid637
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid642
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid643
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid644
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid645
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid647
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid650 ) ;
+  swrl:body (
+   _:genid660
+   _:genid659
+   _:genid658
+   _:genid657
+   _:genid656
+ ) .
+
+_:genid650
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid656
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid657
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid658
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid659
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid660
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid671
+   _:genid670
+   _:genid665
+   _:genid667
+   _:genid669
+ ) ;
+  swrl:head ( _:genid673 ) .
+
+_:genid665
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid667
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid669
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithOvertaker .
+
+_:genid670
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:LastBeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid671
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid673
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid684
+   _:genid677
+   _:genid683
+   _:genid680
+   _:genid682
+ ) ;
+  swrl:head ( _:genid686 ) .
+
+_:genid677
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid680
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid682
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid683
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid684
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid686
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid689
+   _:genid695
+   _:genid692
+   _:genid694
+ ) ;
+  swrl:head ( _:genid697 ) .
+
+_:genid689
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid692
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid694
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithOvertaker .
+
+_:genid695
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid697
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid700
+   _:genid706
+   _:genid703
+   _:genid705
+ ) ;
+  swrl:head ( _:genid708 ) .
+
+_:genid700
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid703
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid705
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithOvertaker .
+
+_:genid706
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid708
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid711 ) ;
+  swrl:body (
+   _:genid713
+   _:genid721
+   _:genid716
+   _:genid720
+   _:genid719
+ ) .
+
+_:genid711
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid713
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid716
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid719
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid720
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid721
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid724 ) ;
+  swrl:body (
+   _:genid730
+   _:genid727
+   _:genid729
+ ) .
+
+_:genid724
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid727
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid729
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid730
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid733 ) ;
+  swrl:body (
+   _:genid743
+   _:genid736
+   _:genid738
+   _:genid740
+   _:genid742
+ ) .
+
+_:genid733
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid736
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid738
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid740
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+
+_:genid742
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid743
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:AfterGap ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid752
+   _:genid747
+   _:genid751
+   _:genid750
+ ) ;
+  swrl:head ( _:genid754 ) .
+
+_:genid747
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid750
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid751
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid752
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+_:genid754
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid757 ) ;
+  swrl:body (
+   _:genid767
+   _:genid760
+   _:genid766
+   _:genid763
+   _:genid765
+ ) .
+
+_:genid757
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid760
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid763
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid765
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid766
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid767
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid770 ) ;
+  swrl:body (
+   _:genid772
+   _:genid774
+   _:genid780
+   _:genid777
+   _:genid779
+ ) .
+
+_:genid770
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid772
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid774
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid777
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid779
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid780
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid783 ) ;
+  swrl:body (
+   _:genid791
+   _:genid786
+   _:genid790
+   _:genid789
+ ) .
+
+_:genid783
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+_:genid786
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid789
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid790
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid791
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid798
+   _:genid797
+   _:genid796
+ ) ;
+  swrl:head ( _:genid800 ) .
+
+_:genid796
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid797
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid798
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid800
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid803
+   _:genid805
+   _:genid807
+ ) ;
+  swrl:head ( _:genid809 ) .
+
+_:genid803
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid805
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid807
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:isInFrontOfOvertaker ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid809
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid812
+   _:genid814
+   _:genid816
+   _:genid818
+ ) ;
+  swrl:head ( _:genid820 ) .
+
+_:genid812
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid814
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid816
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid818
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid820
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid829
+   _:genid824
+   _:genid826
+   _:genid828
+ ) ;
+  swrl:head ( _:genid831 ) .
+
+_:genid824
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid826
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid828
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid829
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+_:genid831
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid834 ) ;
+  swrl:body (
+   _:genid842
+   _:genid837
+   _:genid841
+   _:genid840
+ ) .
+
+_:genid834
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid837
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid840
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid841
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid842
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid853
+   _:genid846
+   _:genid848
+   _:genid852
+   _:genid851
+ ) ;
+  swrl:head ( _:genid855 ) .
+
+_:genid846
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid848
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid851
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid852
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid853
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid855
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid858
+   _:genid866
+   _:genid865
+   _:genid864
+   _:genid863
+ ) ;
+  swrl:head ( _:genid868 ) .
+
+_:genid858
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NoSpace ;
+  swrl:argument1 ns1:c .
+
+_:genid863
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid864
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid865
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid866
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid868
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid871
+   _:genid879
+   _:genid878
+   _:genid875
+   _:genid877
+ ) ;
+  swrl:head ( _:genid881 ) .
+
+_:genid871
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid875
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid877
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid878
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid879
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid881
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid884
+   _:genid886
+   _:genid888
+   _:genid890
+   _:genid892
+ ) ;
+  swrl:head ( _:genid894 ) .
+
+_:genid884
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid886
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid888
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid890
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid892
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid894
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid905
+   _:genid904
+   _:genid899
+   _:genid901
+   _:genid903
+ ) ;
+  swrl:head ( _:genid907 ) .
+
+_:genid899
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid901
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid903
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithOvertaker .
+
+_:genid904
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:LastBeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid905
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid907
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Decelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid912
+   _:genid911
+ ) ;
+  swrl:head ( _:genid914 ) .
+
+_:genid911
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:isOvertaking ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid912
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Vehicle ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid914
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid925
+   _:genid924
+   _:genid919
+   _:genid921
+   _:genid923
+ ) ;
+  swrl:head ( _:genid927 ) .
+
+_:genid919
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid921
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid923
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid924
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 ns1:c .
+
+_:genid925
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:BeforeGap ;
+  swrl:argument1 ns1:c .
+
+_:genid927
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid930 ) ;
+  swrl:body (
+   _:genid932
+   _:genid934
+   _:genid936
+   _:genid940
+   _:genid939
+ ) .
+
+_:genid930
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid932
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
+
+_:genid934
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:argument1 ns1:c .
+
+_:genid936
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:argument1 ns1:c .
+
+_:genid939
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid940
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid943 ) ;
+  swrl:body (
+   _:genid945
+   _:genid951
+   _:genid948
+   _:genid950
+ ) .
+
+_:genid943
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid945
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid948
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid950
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid951
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid954 ) ;
+  swrl:body ( _:genid956 ) .
+
+_:genid954
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Lateral ;
+  swrl:argument1 <urn:swrl#c> .
+
+_:genid956
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 true ;
+  swrl:propertyPredicate ns1:hasSpaceLateral ;
+  swrl:argument1 <urn:swrl#c> .
+
+[]
+  a swrl:Imp ;
+  swrl:body (
+   _:genid959
+   _:genid961
+   _:genid967
+   _:genid964
+   _:genid966
+ ) ;
+  swrl:head ( _:genid969 ) .
+
+_:genid959
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Behind ;
+  swrl:argument1 ns1:c .
+
+_:genid961
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid964
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "3"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithAheadCar .
+
+_:genid966
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "2"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBehindCar .
+
+_:genid967
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 false ;
+  swrl:propertyPredicate ns1:bigSpeedDifference ;
+  swrl:argument1 ns1:c .
+
+_:genid969
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:argument1 ns1:c .
+
+[]
+  a swrl:Imp ;
+  swrl:head ( _:genid972 ) ;
+  swrl:body (
+   _:genid978
+   _:genid977
+   _:genid976
+ ) .
+
+_:genid972
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Accelerate ;
+  swrl:argument1 ns1:c .
+
+_:genid976
+  a swrl:DatavaluedPropertyAtom ;
+  swrl:argument2 "1"^^xsd:long ;
+  swrl:argument1 ns1:c ;
+  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+
+_:genid977
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Overtaker ;
+  swrl:argument1 ns1:c .
+
+_:genid978
+  a swrl:ClassAtom ;
+  swrl:classPredicate ns1:Ahead ;
+  swrl:argument1 ns1:c .
