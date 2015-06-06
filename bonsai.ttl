@@ -1,0 +1,847 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dctems: <http://purl.org/dc/terms/> .
+@prefix bonsai: <http://purl.org/iot/vocab/bonsai#> .
+
+####metadata here ###
+
+<http://purl.org/iot/vocab/bonsai>
+  a owl:Ontology ;
+  owl:versionIRI <http://purl.org/iot/vocab/bonsai> ;
+  dcterms:modified "2015-06-06";
+  dcterms:contributor "Ghislain Atemezing", "Amelie Gyrard";
+  rdfs:seeAlso <http://purl.org/iot/vocab/bonsai> ;
+  owl:imports <http://www.daml.org/services/owl-s/1.2/Service.owl>, <http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl> .
+
+##########
+
+
+<http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#Resource> a rdfs:Class .
+<http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#User> a rdfs:Class .
+<http://purl.org/iot/vocab/bonsai#Parameter> a owl:Class .
+<http://purl.org/iot/vocab/bonsai#SmartPlug>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#ActuatorSensor>, [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#returnsParameter> ;
+    owl:allValuesFrom <http://purl.org/iot/vocab/bonsai#PowerConsumption>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#performsAction> ;
+    owl:allValuesFrom <http://purl.org/iot/vocab/bonsai#SwitchAction>
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#ActuatorSensor>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Sensor>, <http://purl.org/iot/vocab/bonsai#Actuator> ;
+  rdfs:comment """<p style="margin-top: 0">
+      Models devices that can partially perceive the state of the world 
+    </p>
+    <p style="margin-top: 0">
+      and change it as well (are both Sensors and Actuators)
+    </p>"""^^xsd:string .
+
+<http://purl.org/iot/vocab/bonsai#returnsParameter>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Sensor> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Parameter> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isReturnedBy> .
+
+<http://purl.org/iot/vocab/bonsai#PowerConsumption>
+  a owl:Class ;
+  rdfs:comment """<p style="margin-top: 0">
+      A Power amount
+    </p>"""^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Parameter>, [
+    a owl:Restriction ;
+    owl:hasValue "watt"^^xsd:string ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#measuringUnit>
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#performsAction>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isPerformedByActuator> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Actuator> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Action> .
+
+<http://purl.org/iot/vocab/bonsai#SwitchAction>
+  a owl:Class ;
+  rdfs:comment """<p style="margin-top: 0">
+      A Switch Action turns an electric Appliance On or Off (i.e. switches"""^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Action>, [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#causesFact> ;
+    owl:allValuesFrom <http://purl.org/iot/vocab/bonsai#PowerState>
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#Point>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Location> .
+
+<http://purl.org/iot/vocab/bonsai#Location>
+  a owl:Class ;
+  rdfs:comment """<p style="margin-top: 0">
+      Location models the abstract notion of whereabouts.
+    </p>
+    <p style="margin-top: 0">
+      It can be specified further through subclasses.
+    </p>"""^^xsd:string .
+
+<http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Restriction ;
+    owl:hasValue "Wireless"^^xsd:string ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#type>
+  ] ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> .
+
+<http://purl.org/iot/vocab/bonsai#type>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> ;
+  rdfs:range [
+    a owl:DataRange ;
+    owl:oneOf (
+     "Wired"^^xsd:string
+     "Wireless"^^xsd:string
+   )
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#CommunicationProtocol>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol>
+     <http://purl.org/iot/vocab/bonsai#WiredCommunicationProtocol>
+   )
+  ], owl:Thing .
+
+<http://purl.org/iot/vocab/bonsai#Action> a owl:Class .
+<http://purl.org/iot/vocab/bonsai#causesFact>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isCausedByAction> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Action> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Fact> .
+
+<http://purl.org/iot/vocab/bonsai#PowerState>
+  a owl:Class ;
+  rdfs:comment """A PowerState models the current supply for an Electric Appliance.
+A PowerState has a value. e.g. off value means that the Appliance that has 
+    this PowerState is off.
+PowerState is also a subclass of Fact.
+e.g. a PowerState of value off, means that the connected Appliance is 
+    currently off."""@en ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Fact> .
+
+<http://purl.org/iot/vocab/bonsai#ActuatorOperation>
+  a owl:Class ;
+  owl:disjointWith <http://purl.org/iot/vocab/bonsai#SensoryOperation> ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Operation> ;
+  rdfs:comment """<p style="margin-top: 0">
+      Operation that results in a change of the world's state
+    </p>
+    <p style="margin-top: 0">
+      i.e. hasEffect object property has a value 
+    </p>"""^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid6
+     _:genid8
+   )
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#SensoryOperation>
+  a owl:Class ;
+  owl:disjointWith <http://purl.org/iot/vocab/bonsai#ActuatorOperation> ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Operation> ;
+  owl:equivalentClass [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#hasOutput> ;
+    owl:minCardinality "1"^^xsd:int
+  ] ;
+  rdfs:comment """<p style="margin-top: 0">
+      Operation that returns a parameter.
+    </p>"""^^xsd:string .
+
+<http://purl.org/iot/vocab/bonsai#Operation>
+  a owl:Class ;
+  rdfs:comment """<p style="margin-top: 0">
+      A Service Operation is an actual function that can be invoked as an RPC.
+    </p>
+    <p style="margin-top: 0">
+      It has inherently Input and Output types.
+    </p>
+    <p style="margin-top: 0">
+      In the model it also has Preconditions and Effects.
+    </p>"""^^xsd:string ;
+  owl:disjointWith <http://purl.org/iot/vocab/bonsai#User> .
+
+<http://purl.org/iot/vocab/bonsai#Building>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Location> .
+
+<http://purl.org/iot/vocab/bonsai#X10>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#PLC> .
+
+<http://purl.org/iot/vocab/bonsai#PLC>
+  a owl:Class ;
+  rdfs:comment """<p style="margin-top: 0">
+      Power Line Communications, wired communication protocol for smart devices
+    </p>"""^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#WiredCommunicationProtocol> .
+
+<http://purl.org/iot/vocab/bonsai#Z-Wave>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#frequency> ;
+    owl:hasValue "868.42"^^xsd:float
+  ], <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol> .
+
+<http://purl.org/iot/vocab/bonsai#frequency>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol> .
+
+<http://purl.org/iot/vocab/bonsai#Computer>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Appliance> .
+
+<http://purl.org/iot/vocab/bonsai#Appliance>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Hardware> .
+
+<http://purl.org/iot/vocab/bonsai#hasOutput>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Operation> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/iot/vocab/bonsai#Parameter>
+     <http://purl.org/iot/vocab/bonsai#Fact>
+   )
+  ] ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isOutputOf> .
+
+<http://purl.org/iot/vocab/bonsai#Hardware> a owl:Class .
+<http://purl.org/iot/vocab/bonsai#Temperature>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#EnvironmentalParameter>, [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#measuringUnit> ;
+    owl:hasValue "celcius"^^xsd:string
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#EnvironmentalParameter>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Parameter> .
+
+<http://purl.org/iot/vocab/bonsai#measuringUnit>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Parameter> .
+
+<http://purl.org/iot/vocab/bonsai#Date>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Parameter> .
+
+<http://purl.org/iot/vocab/bonsai#PlugwiseCircle>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#SmartPlug> .
+
+<http://purl.org/iot/vocab/bonsai#Context>
+  a owl:Class ;
+  owl:disjointWith <http://purl.org/iot/vocab/bonsai#User> ;
+  rdfs:comment """<p style="margin-top: 0">
+      Models tha current situation surrounding an entity, at a certain time.
+    </p>
+    <p style="margin-top: 0">
+      Thus, is a set of Location, Time, and many environmental parameters.
+    </p>"""^^xsd:string .
+
+<http://purl.org/iot/vocab/bonsai#User>
+  a owl:Class ;
+  rdfs:subClassOf <http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#User> .
+
+<http://purl.org/iot/vocab/bonsai#Room>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Location> .
+
+<http://purl.org/iot/vocab/bonsai#Device>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Hardware> ;
+  rdfs:comment """<p style="margin-top: 0">
+      Models Smart Devices, usually classified as either Sensors or Actuators.
+    </p>
+    <p style="margin-top: 0">
+      These devices can be service-enabled.
+    </p>"""^^xsd:string .
+
+<http://purl.org/iot/vocab/bonsai#Pressure>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#EnvironmentalParameter>, [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#measuringUnit> ;
+    owl:hasValue "Atm"^^xsd:string
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#WiredCommunicationProtocol>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> ;
+  owl:equivalentClass [
+    a owl:Restriction ;
+    owl:hasValue "Wired"^^xsd:string ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#type>
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#PrismaQuax>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#MultiSensor>, [
+    a owl:Restriction ;
+    owl:allValuesFrom [
+      a owl:Class ;
+      owl:unionOf (
+       <http://purl.org/iot/vocab/bonsai#Humidity>
+       <http://purl.org/iot/vocab/bonsai#Luminance>
+       <http://purl.org/iot/vocab/bonsai#Temperature>
+     )
+    ] ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#returnsParameter>
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#MultiSensor>
+  a owl:Class ;
+  rdfs:comment """<p style="margin-top: 0">
+      Models arrays of (single) Sensors (e.g. Sensor boards)
+    </p>"""^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Device> .
+
+<http://purl.org/iot/vocab/bonsai#Humidity>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#EnvironmentalParameter>, [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#measuringUnit> ;
+    owl:hasValue "percentage"^^xsd:string
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#Luminance>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:hasValue "lm/m^2"^^xsd:string ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#measuringUnit>
+  ], <http://purl.org/iot/vocab/bonsai#EnvironmentalParameter> .
+
+<http://purl.org/iot/vocab/bonsai#CCSmartClamper>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#SmartClamper> .
+
+<http://purl.org/iot/vocab/bonsai#SmartClamper>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Sensor> .
+
+<http://purl.org/iot/vocab/bonsai#Service>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.daml.org/services/owl-s/1.2/Service.owl#Service>, [
+    a owl:Restriction ;
+    owl:maxCardinality "1"^^xsd:int ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#hasServiceModel>
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#hasServiceModel>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Service> ;
+  rdfs:range <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel> .
+
+<http://purl.org/iot/vocab/bonsai#Time>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Parameter> .
+
+<http://purl.org/iot/vocab/bonsai#Sensor>
+  a owl:Class ;
+  rdfs:comment """<p style="margin-top: 0">
+      Models devices that can partially perceive the state of the world
+    </p>
+    <p style="margin-top: 0">
+      (but cannot change it i.e. are not Actuators)
+    </p>"""^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Device> .
+
+<http://purl.org/iot/vocab/bonsai#Actuator>
+  a owl:Class ;
+  rdfs:comment """<p style="margin-top: 0">
+      Models devices that take actions and alter the state of the world
+    </p>
+    <p style="margin-top: 0">
+      (but are not Sensors)
+    </p>"""^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Device> .
+
+<http://purl.org/iot/vocab/bonsai#ID>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Parameter> .
+
+<http://purl.org/iot/vocab/bonsai#OWLSmartClamper>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#SmartClamper> .
+
+<http://purl.org/iot/vocab/bonsai#Noise>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:hasValue "dB"^^xsd:string ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#measuringUnit>
+  ], <http://purl.org/iot/vocab/bonsai#EnvironmentalParameter> .
+
+<http://purl.org/iot/vocab/bonsai#Zigbee>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#frequency> ;
+    owl:hasValue "868"^^xsd:int
+  ], <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol> .
+
+<http://purl.org/iot/vocab/bonsai#Insteon>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#PLC> .
+
+<http://purl.org/iot/vocab/bonsai#CO2level>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#EnvironmentalParameter>, [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#measuringUnit> ;
+    owl:hasValue "ppm"^^xsd:string
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#Server>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Computer> .
+
+<http://purl.org/iot/vocab/bonsai#Floor>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Location> .
+
+<http://purl.org/iot/vocab/bonsai#Lighting>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:allValuesFrom <http://purl.org/iot/vocab/bonsai#Luminance> ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#affectsEnvironmentalParameter>
+  ], <http://purl.org/iot/vocab/bonsai#Appliance> .
+
+<http://purl.org/iot/vocab/bonsai#affectsEnvironmentalParameter>
+  a owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#EnvironmentalParameter> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Appliance> .
+
+<http://purl.org/iot/vocab/bonsai#Radiator>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:allValuesFrom <http://purl.org/iot/vocab/bonsai#Temperature> ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#affectsEnvironmentalParameter>
+  ], <http://purl.org/iot/vocab/bonsai#Appliance> .
+
+<http://purl.org/iot/vocab/bonsai#Fact>
+  a owl:Class ;
+  rdfs:comment """A Fact models a known literal or predicate that is valid
+ for the World Model."""^^xsd:string .
+
+<http://purl.org/iot/vocab/bonsai#Energy>
+  a owl:Class ;
+  rdfs:comment """<p style="margin-top: 0">
+      An Energy amount
+    </p>"""^^xsd:string ;
+  rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Parameter> .
+
+<http://purl.org/iot/vocab/bonsai#AirCondition>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/vocab/bonsai#affectsEnvironmentalParameter> ;
+    owl:allValuesFrom <http://purl.org/iot/vocab/bonsai#Temperature>
+  ], <http://purl.org/iot/vocab/bonsai#Appliance> .
+
+<http://purl.org/iot/vocab/bonsai#isOutputOf>
+  a owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Operation> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Parameter> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasOutput> .
+
+<http://purl.org/iot/vocab/bonsai#hasPrecondition>
+  a owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Fact> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isPreconditionOf> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Operation> .
+
+<http://purl.org/iot/vocab/bonsai#isPreconditionOf>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasPrecondition> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Operation> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Fact> .
+
+<http://purl.org/iot/vocab/bonsai#isPowerStateOf>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#PowerState> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasPowerState> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Appliance> ;
+  rdfs:comment """<p style="margin-top: 0">
+      Shows the Appliance that the PowerState belongs to
+    </p>"""^^xsd:string .
+
+<http://purl.org/iot/vocab/bonsai#hasPowerState>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isPowerStateOf> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#PowerState> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Appliance> .
+
+<http://purl.org/iot/vocab/bonsai#exposesDevice>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isExposedByService> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Device> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Service> .
+
+<http://purl.org/iot/vocab/bonsai#isExposedByService>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Device> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#exposesDevice> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Service> .
+
+<http://purl.org/iot/vocab/bonsai#hasCommunicationProtocol>
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Device> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> .
+
+<http://purl.org/iot/vocab/bonsai#hasFloor>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Building> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isInBuilding> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Floor> .
+
+<http://purl.org/iot/vocab/bonsai#isInBuilding>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Floor> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Building> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasFloor> .
+
+<http://purl.org/iot/vocab/bonsai#isInputOf>
+  a owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Operation> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Parameter> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasInput> .
+
+<http://purl.org/iot/vocab/bonsai#hasInput>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isInputOf> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Operation> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Parameter> .
+
+<http://purl.org/iot/vocab/bonsai#isCausedByAction>
+  a owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Action> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Fact> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#causesFact> .
+
+<http://purl.org/iot/vocab/bonsai#consumes>
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#PowerConsumption> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Appliance> .
+
+<http://purl.org/iot/vocab/bonsai#hasParameter>
+  a owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Parameter> .
+
+<http://purl.org/iot/vocab/bonsai#offersResource>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Computer> ;
+  rdfs:range <http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#Resource> .
+
+<http://purl.org/iot/vocab/bonsai#isPerformedByActuator>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Action> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#performsAction> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Actuator> .
+
+<http://purl.org/iot/vocab/bonsai#hasContext>
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Context> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#User> .
+
+<http://purl.org/iot/vocab/bonsai#hasEnvironmentalParameter>
+  a owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Parameter> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Context> .
+
+<http://purl.org/iot/vocab/bonsai#hasServiceProfile>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Service> ;
+  rdfs:range <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile> .
+
+<http://purl.org/iot/vocab/bonsai#hasServiceGrounding>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Service> ;
+  rdfs:range <http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding> .
+
+<http://purl.org/iot/vocab/bonsai#hasEffect>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isEffectOf> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Operation> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Fact> .
+
+<http://purl.org/iot/vocab/bonsai#isEffectOf>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Fact> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasEffect> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Operation> .
+
+<http://purl.org/iot/vocab/bonsai#hasPoint>
+  a owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Point> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Room> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isInRoom> .
+
+<http://purl.org/iot/vocab/bonsai#isInRoom>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Point> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasPoint> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Room> .
+
+<http://purl.org/iot/vocab/bonsai#hasRoom>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Floor> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Room> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isOnFloor> .
+
+<http://purl.org/iot/vocab/bonsai#isOnFloor>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Floor> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasRoom> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Room> .
+
+<http://purl.org/iot/vocab/bonsai#manifestatesDevice>
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Device> .
+
+<http://purl.org/iot/vocab/bonsai#inverse_of_hasFloor> a owl:ObjectProperty .
+<http://purl.org/iot/vocab/bonsai#hasLocation>
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isLocationOf> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Location> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/iot/vocab/bonsai#Context>
+     <http://purl.org/iot/vocab/bonsai#Hardware>
+   )
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#isLocationOf>
+  a owl:InverseFunctionalProperty, owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Location> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasLocation> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/iot/vocab/bonsai#Context>
+     <http://purl.org/iot/vocab/bonsai#Hardware>
+   )
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#range>
+  a rdf:Property ;
+  rdfs:range xsd:float .
+
+<http://purl.org/iot/vocab/bonsai#value>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:range xsd:float ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Parameter> .
+
+<http://purl.org/iot/vocab/bonsai#y_value>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Point> ;
+  rdfs:range xsd:float .
+
+<http://purl.org/iot/vocab/bonsai#energyClass>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Appliance> ;
+  rdfs:range [
+    a owl:DataRange ;
+    owl:oneOf (
+     "A"^^xsd:string
+     "B"^^xsd:string
+     "C"^^xsd:string
+     "D"^^xsd:string
+     "E"^^xsd:string
+     "F"^^xsd:string
+     "G"^^xsd:string
+   )
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#parameter> a owl:DatatypeProperty .
+<http://purl.org/iot/vocab/bonsai#email>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#User> .
+
+<http://purl.org/iot/vocab/bonsai#phone>
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:int ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#User> .
+
+<http://purl.org/iot/vocab/bonsai#x_value>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Point> ;
+  rdfs:range xsd:float .
+
+<http://purl.org/iot/vocab/bonsai#name>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#User> .
+
+<http://purl.org/iot/vocab/bonsai#latency>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> .
+
+<http://purl.org/iot/vocab/bonsai#maxNodesPerNetwork>
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:int ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> .
+
+<http://purl.org/iot/vocab/bonsai#dataRate>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> .
+
+<http://purl.org/iot/vocab/bonsai#macID>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#PlugwiseCircle> ;
+  rdfs:range xsd:string .
+
+<http://purl.org/iot/vocab/bonsai#PowerStateValue>
+  a owl:FunctionalProperty, owl:DatatypeProperty ;
+  rdfs:range [
+    a owl:DataRange ;
+    owl:oneOf (
+     "On"^^xsd:string
+     "Off"^^xsd:string
+   )
+  ] ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#PowerState> .
+
+<http://purl.org/iot/vocab/bonsai#isAttachedToAppliance>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#SmartPlug> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Appliance> .
+
+<http://purl.org/iot/vocab/bonsai#coverRange>
+  a owl:FunctionalProperty, owl:DatatypeProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol> ;
+  rdfs:range xsd:float .
+
+<http://purl.org/iot/vocab/bonsai#sensorName>
+  a owl:FunctionalProperty, owl:DatatypeProperty ;
+  rdfs:range xsd:string .
+
+<http://purl.org/iot/vocab/bonsai#model>
+  a owl:FunctionalProperty, owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Hardware> .
+
+<http://purl.org/iot/vocab/bonsai#belongsToService>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasOperation> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Operation> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Service> .
+
+<http://purl.org/iot/vocab/bonsai#hasOperation>
+  a owl:InverseFunctionalProperty, owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Operation> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Service> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#belongsToService> .
+
+<http://purl.org/iot/vocab/bonsai#DeviceInterface>
+  a owl:FunctionalProperty, owl:DatatypeProperty ;
+  rdfs:range [
+    a owl:DataRange ;
+    owl:oneOf (
+     "USB"^^xsd:string
+     "WiFi"^^xsd:string
+     "Ethernet"^^xsd:string
+   )
+  ] ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Device> .
+
+<http://purl.org/iot/vocab/bonsai#manufacturer>
+  a owl:FunctionalProperty, owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Hardware> .
+
+<http://purl.org/iot/vocab/bonsai#isReturnedBy>
+  a owl:InverseFunctionalProperty, owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#returnsParameter> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Parameter> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Sensor> .
+
+<http://purl.org/iot/vocab/bonsai#belongsToMultiSensor>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#MultiSensor> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Sensor> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hasSensor> .
+
+<http://purl.org/iot/vocab/bonsai#hasSensor>
+  a owl:InverseFunctionalProperty, owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#belongsToMultiSensor> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Sensor> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#MultiSensor> .
+
+<http://purl.org/iot/vocab/bonsai#isHostedAt>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#hostsService> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Service> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Server> .
+
+<http://purl.org/iot/vocab/bonsai#hostsService>
+  a owl:InverseFunctionalProperty, owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isHostedAt> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Server> ;
+  rdfs:range <http://www.daml.org/services/owl-s/1.2/Service.owl#Service> .
+
+<http://purl.org/iot/vocab/bonsai#FloorNo>
+  a owl:FunctionalProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Floor> ;
+  rdfs:range xsd:int .
+
+<http://purl.org/iot/vocab/bonsai#hasTime>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Context> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Time> .
+
+<http://purl.org/iot/vocab/bonsai#dateTime>
+  a owl:FunctionalProperty, owl:DatatypeProperty ;
+  rdfs:range xsd:dateTime ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Time> .
+
+<http://purl.org/iot/vocab/bonsai#sentFromSensor>
+  a owl:FunctionalProperty, owl:ObjectProperty, owl:InverseFunctionalProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Sensor> .
+
+<http://purl.org/iot/vocab/bonsai#hasID>
+  a owl:InverseFunctionalProperty, owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#ID> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Device> .
+
+<http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy> owl:equivalentProperty <http://purl.org/iot/vocab/bonsai#hasServiceModel> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#presents> owl:equivalentProperty <http://purl.org/iot/vocab/bonsai#hasServiceProfile> .
+<http://www.daml.org/services/owl-s/1.2/Service.owl#supports> owl:equivalentProperty <http://purl.org/iot/vocab/bonsai#hasServiceGrounding> .
+<http://purl.org/iot/vocab/bonsai#SmartPlugService> a <http://purl.org/iot/vocab/bonsai#Service> .
+_:genid6
+  a owl:Restriction ;
+  owl:onProperty <http://purl.org/iot/vocab/bonsai#causesFact> ;
+  owl:minCardinality "1"^^xsd:int .
+
+_:genid8
+  a owl:Restriction ;
+  owl:cardinality "0"^^xsd:int ;
+  owl:onProperty <http://purl.org/iot/vocab/bonsai#causesFact> .
