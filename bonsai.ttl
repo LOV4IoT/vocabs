@@ -21,11 +21,19 @@
 ##########
 
 
+### classes here #####
+
 <http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#Resource> a rdfs:Class .
 <http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#User> a rdfs:Class .
-<http://purl.org/iot/vocab/bonsai#Parameter> a owl:Class .
+
+
+<http://purl.org/iot/vocab/bonsai#Parameter> a owl:Class ;
+    rdfs:label "Parameter"@en ;
+    .
+      
 <http://purl.org/iot/vocab/bonsai#SmartPlug>
   a owl:Class ;
+  rdfs:label "Smart plug"@en ;
   rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#ActuatorSensor>, [
     a owl:Restriction ;
     owl:onProperty <http://purl.org/iot/vocab/bonsai#returnsParameter> ;
@@ -38,6 +46,7 @@
 
 <http://purl.org/iot/vocab/bonsai#ActuatorSensor>
   a owl:Class ;
+  rdfs:label "Actuator sensor"@en ;
   rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Sensor>, <http://purl.org/iot/vocab/bonsai#Actuator> ;
   rdfs:comment """<p style="margin-top: 0">
       Models devices that can partially perceive the state of the world 
@@ -46,14 +55,9 @@
       and change it as well (are both Sensors and Actuators)
     </p>"""^^xsd:string .
 
-<http://purl.org/iot/vocab/bonsai#returnsParameter>
-  a owl:FunctionalProperty, owl:ObjectProperty ;
-  rdfs:domain <http://purl.org/iot/vocab/bonsai#Sensor> ;
-  rdfs:range <http://purl.org/iot/vocab/bonsai#Parameter> ;
-  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isReturnedBy> .
-
 <http://purl.org/iot/vocab/bonsai#PowerConsumption>
   a owl:Class ;
+  rdfs:label "Power consumption"@en ;
   rdfs:comment """<p style="margin-top: 0">
       A Power amount
     </p>"""^^xsd:string ;
@@ -62,15 +66,10 @@
     owl:hasValue "watt"^^xsd:string ;
     owl:onProperty <http://purl.org/iot/vocab/bonsai#measuringUnit>
   ] .
-
-<http://purl.org/iot/vocab/bonsai#performsAction>
-  a owl:ObjectProperty ;
-  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isPerformedByActuator> ;
-  rdfs:domain <http://purl.org/iot/vocab/bonsai#Actuator> ;
-  rdfs:range <http://purl.org/iot/vocab/bonsai#Action> .
-
-<http://purl.org/iot/vocab/bonsai#SwitchAction>
+  
+  <http://purl.org/iot/vocab/bonsai#SwitchAction>
   a owl:Class ;
+  rdfs:label "Switch action"@en ;
   rdfs:comment """<p style="margin-top: 0">
       A Switch Action turns an electric Appliance On or Off (i.e. switches"""^^xsd:string ;
   rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Action>, [
@@ -78,13 +77,14 @@
     owl:onProperty <http://purl.org/iot/vocab/bonsai#causesFact> ;
     owl:allValuesFrom <http://purl.org/iot/vocab/bonsai#PowerState>
   ] .
-
-<http://purl.org/iot/vocab/bonsai#Point>
+  
+  <http://purl.org/iot/vocab/bonsai#Point>
   a owl:Class ;
   rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Location> .
 
 <http://purl.org/iot/vocab/bonsai#Location>
   a owl:Class ;
+  rdfs:label "Location"@en ;
   rdfs:comment """<p style="margin-top: 0">
       Location models the abstract notion of whereabouts.
     </p>
@@ -94,35 +94,15 @@
 
 <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol>
   a owl:Class ;
+  rdfs:label "Wireless communication protocol"@en ;
   owl:equivalentClass [
     a owl:Restriction ;
     owl:hasValue "Wireless"^^xsd:string ;
     owl:onProperty <http://purl.org/iot/vocab/bonsai#type>
   ] ;
   rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> .
-
-<http://purl.org/iot/vocab/bonsai#type>
-  a owl:DatatypeProperty, owl:FunctionalProperty ;
-  rdfs:domain <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> ;
-  rdfs:range [
-    a owl:DataRange ;
-    owl:oneOf (
-     "Wired"^^xsd:string
-     "Wireless"^^xsd:string
-   )
-  ] .
-
-<http://purl.org/iot/vocab/bonsai#CommunicationProtocol>
-  a owl:Class ;
-  rdfs:subClassOf [
-    a owl:Class ;
-    owl:unionOf (
-     <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol>
-     <http://purl.org/iot/vocab/bonsai#WiredCommunicationProtocol>
-   )
-  ], owl:Thing .
-
-<http://purl.org/iot/vocab/bonsai#Action> a owl:Class .
+  
+  <http://purl.org/iot/vocab/bonsai#Action> a owl:Class .
 <http://purl.org/iot/vocab/bonsai#causesFact>
   a owl:ObjectProperty ;
   owl:inverseOf <http://purl.org/iot/vocab/bonsai#isCausedByAction> ;
@@ -206,17 +186,53 @@ e.g. a PowerState of value off, means that the connected Appliance is
     owl:hasValue "868.42"^^xsd:float
   ], <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol> .
 
-<http://purl.org/iot/vocab/bonsai#frequency>
-  a owl:DatatypeProperty, owl:FunctionalProperty ;
-  rdfs:domain <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol> .
 
 <http://purl.org/iot/vocab/bonsai#Computer>
   a owl:Class ;
+  rdfs:label "Computer"@en ;
   rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Appliance> .
 
 <http://purl.org/iot/vocab/bonsai#Appliance>
   a owl:Class ;
   rdfs:subClassOf <http://purl.org/iot/vocab/bonsai#Hardware> .
+  
+  ### Properties here ###
+
+<http://purl.org/iot/vocab/bonsai#returnsParameter>
+  a owl:FunctionalProperty, owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Sensor> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Parameter> ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isReturnedBy> .
+
+
+<http://purl.org/iot/vocab/bonsai#performsAction>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/vocab/bonsai#isPerformedByActuator> ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#Actuator> ;
+  rdfs:range <http://purl.org/iot/vocab/bonsai#Action> .
+
+<http://purl.org/iot/vocab/bonsai#type>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#CommunicationProtocol> ;
+  rdfs:range [
+    a owl:DataRange ;
+    owl:oneOf (
+     "Wired"^^xsd:string
+     "Wireless"^^xsd:string
+   )
+  ] .
+
+<http://purl.org/iot/vocab/bonsai#CommunicationProtocol>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol>
+     <http://purl.org/iot/vocab/bonsai#WiredCommunicationProtocol>
+   )
+  ], owl:Thing .
+
+
 
 <http://purl.org/iot/vocab/bonsai#hasOutput>
   a owl:ObjectProperty ;
@@ -494,6 +510,11 @@ e.g. a PowerState of value off, means that the connected Appliance is
   rdfs:comment """<p style="margin-top: 0">
       Shows the Appliance that the PowerState belongs to
     </p>"""^^xsd:string .
+
+
+<http://purl.org/iot/vocab/bonsai#frequency>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain <http://purl.org/iot/vocab/bonsai#WirelessCommunicationProtocol> .
 
 <http://purl.org/iot/vocab/bonsai#hasPowerState>
   a owl:FunctionalProperty, owl:ObjectProperty ;
