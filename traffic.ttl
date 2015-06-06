@@ -12,10 +12,11 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 <http://purl.org/iot/vocab/traffic>
-  a owl:Ontology, owl:NamedIndividual, <http://purl.org/vocommons/voaf#Vocabulary> ;
+  a owl:Ontology, <http://purl.org/vocommons/voaf#Vocabulary> ;
   owl:versionInfo 1.0 ;
   dc:issued "2012-01-21"^^xsd:date ;
   dc:modified "2012-09-07"^^xsd:date ;
+  dcterms:modified "2015-06-06"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/iot/vocab/traffic#" ;
   vann:preferredNamespacePrefix "traffic" ;
   rdfs:comment " An ontology to describe the management of the traffic" ;
