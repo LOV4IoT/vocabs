@@ -272,49 +272,49 @@ foaf:Person a owl:Class .
 <http://purl.org/vocommons/voaf> a owl:NamedIndividual, <http://purl.org/vocommons/voaf#Vocabulary> .
 <http://purl.org/iot/vocab/traffic#Car1>
   a owl:NamedIndividual, <http://purl.org/iot/vocab/traffic#Vehicle> ;
-  ns1:speedWithBeforeTheGapCar 2 ;
-  ns1:isOvertaking false ;
-  ns1:hasSpaceLateral false ;
-  ns1:hasSpaceBehind false ;
-  ns1:bigSpeedDifference false ;
-  ns1:isInFrontOfOvertaker false ;
-  ns1:lastFirstBeforeAfter-TheGap true ;
-  ns1:hasSpaceAhead true ;
-  ns1:beforeTheGap true .
+  traffic:speedWithBeforeTheGapCar 2 ;
+  traffic:isOvertaking false ;
+  traffic:hasSpaceLateral false ;
+  traffic:hasSpaceBehind false ;
+  traffic:bigSpeedDifference false ;
+  traffic:isInFrontOfOvertaker false ;
+  traffic:lastFirstBeforeAfter-TheGap true ;
+  traffic:hasSpaceAhead true ;
+  traffic:beforeTheGap true .
 
-ns1:Car2
-  a owl:NamedIndividual, ns1:Vehicle ;
-  ns1:speedWithBeforeTheGapCar 1 ;
-  ns1:bigSpeedDifference false ;
-  ns1:hasSpaceBehind false ;
-  ns1:hasSpaceLateral false ;
-  ns1:isOvertaking false ;
-  ns1:beforeTheGap false ;
-  ns1:hasSpaceAhead true ;
-  ns1:lastFirstBeforeAfter-TheGap true ;
-  ns1:isInFrontOfOvertaker true .
+traffic:Car2
+  a owl:NamedIndividual, traffic:Vehicle ;
+  traffic:speedWithBeforeTheGapCar 1 ;
+  traffic:bigSpeedDifference false ;
+  traffic:hasSpaceBehind false ;
+  traffic:hasSpaceLateral false ;
+  traffic:isOvertaking false ;
+  traffic:beforeTheGap false ;
+  traffic:hasSpaceAhead true ;
+  traffic:lastFirstBeforeAfter-TheGap true ;
+  traffic:isInFrontOfOvertaker true .
 
-ns1:Car3
-  a owl:NamedIndividual, ns1:Vehicle ;
-  ns1:speedWithBeforeTheGapCar 3 ;
-  ns1:hasSpaceLateral false ;
-  ns1:lastFirstBeforeAfter-TheGap false ;
-  ns1:beforeTheGap false ;
-  ns1:isOvertaking false ;
-  ns1:hasSpaceBehind false ;
-  ns1:bigSpeedDifference false ;
-  ns1:hasSpaceAhead true ;
-  ns1:isInFrontOfOvertaker true .
+traffic:Car3
+  a owl:NamedIndividual, traffic:Vehicle ;
+  traffic:speedWithBeforeTheGapCar 3 ;
+  traffic:hasSpaceLateral false ;
+  traffic:lastFirstBeforeAfter-TheGap false ;
+  traffic:beforeTheGap false ;
+  traffic:isOvertaking false ;
+  traffic:hasSpaceBehind false ;
+  traffic:bigSpeedDifference false ;
+  traffic:hasSpaceAhead true ;
+  traffic:isInFrontOfOvertaker true .
 
-ns1:Car4
-  a owl:NamedIndividual, ns1:Vehicle ;
-  ns1:speedWithBeforeTheGapCar 3 ;
-  ns1:bigSpeedDifference false ;
-  ns1:hasSpaceBehind false ;
-  ns1:hasSpaceLateral false ;
-  ns1:isInFrontOfOvertaker false ;
-  ns1:isOvertaking true ;
-  ns1:hasSpaceAhead true .
+traffic:Car4
+  a owl:NamedIndividual, traffic:Vehicle ;
+  traffic:speedWithBeforeTheGapCar 3 ;
+  traffic:bigSpeedDifference false ;
+  traffic:hasSpaceBehind false ;
+  traffic:hasSpaceLateral false ;
+  traffic:isInFrontOfOvertaker false ;
+  traffic:isOvertaking true ;
+  traffic:hasSpaceAhead true .
 
 <http://www.unavarra.es/foaf/unavarra.rdf#A.Cordoba> a owl:NamedIndividual, foaf:Person .
 <http://www.unavarra.es/foaf/unavarra.rdf#A.J.Bermejo> a owl:NamedIndividual, foaf:Person .
@@ -336,7 +336,7 @@ ns1:Car4
   a owl:NamedIndividual, foaf:Person ;
   foaf:name "J. J. Astrain" .
 
-ns1:c a <http://www.w3.org/2003/11/swrl#Variable> .
+traffic:c a <http://www.w3.org/2003/11/swrl#Variable> .
 <urn:swrl#c> a <http://www.w3.org/2003/11/swrl#Variable> .
 []
   a <http://www.w3.org/2003/11/swrl#Imp> ;
@@ -351,35 +351,35 @@ ns1:c a <http://www.w3.org/2003/11/swrl#Variable> .
 
 _:genid22
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid26
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid27
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid28
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid29
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid31
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -393,30 +393,30 @@ _:genid31
 
 _:genid34
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid37
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid39
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid40
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid42
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -431,35 +431,35 @@ _:genid42
 
 _:genid45
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid51
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid52
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:isInFrontOfOvertaker .
 
 _:genid53
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid54
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid55
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -473,29 +473,29 @@ _:genid55
 
 _:genid58
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid60
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:LastBeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:LastBeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid63
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithOvertaker .
 
 _:genid64
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid66
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -508,18 +508,18 @@ _:genid66
 _:genid70
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:lastFirstBeforeAfter-TheGap ;
+  swrl:propertyPredicate traffic:lastFirstBeforeAfter-TheGap ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid71
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:beforeTheGap ;
+  swrl:propertyPredicate traffic:beforeTheGap ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid73
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:FirstAfterGap ;
+  swrl:classPredicate traffic:FirstAfterGap ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -532,19 +532,19 @@ _:genid73
 
 _:genid76
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
+  swrl:classPredicate traffic:Ahead ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid78
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:hasSpaceAhead ;
+  swrl:propertyPredicate traffic:hasSpaceAhead ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid80
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:hasSpaceLateral ;
+  swrl:propertyPredicate traffic:hasSpaceLateral ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -559,29 +559,29 @@ _:genid80
 
 _:genid84
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid86
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid88
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid89
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:FirstAfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:FirstAfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid91
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -596,35 +596,35 @@ _:genid91
 
 _:genid94
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid97
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid99
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid101
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid102
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid104
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -636,17 +636,17 @@ _:genid104
 
 _:genid107
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
+  swrl:classPredicate traffic:Lateral ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid109
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
+  swrl:classPredicate traffic:Overtaker ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid111
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:ChangeLine ;
+  swrl:classPredicate traffic:ChangeLine ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -662,36 +662,36 @@ _:genid111
 
 _:genid114
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid117
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid119
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid121
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid123
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid124
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -707,35 +707,35 @@ _:genid124
 _:genid129
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid132
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid133
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid134
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid135
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 _:genid137
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -751,35 +751,35 @@ _:genid137
 _:genid142
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid145
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid146
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid147
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid148
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid150
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -792,18 +792,18 @@ _:genid150
 _:genid154
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:lastFirstBeforeAfter-TheGap ;
+  swrl:propertyPredicate traffic:lastFirstBeforeAfter-TheGap ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid155
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:beforeTheGap ;
+  swrl:propertyPredicate traffic:beforeTheGap ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid157
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
+  swrl:classPredicate traffic:BeforeGap ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -819,35 +819,35 @@ _:genid157
 
 _:genid161
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid163
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid166
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid167
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid168
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid170
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -862,36 +862,36 @@ _:genid170
 
 _:genid173
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid175
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 _:genid178
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid180
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid182
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid183
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -904,18 +904,18 @@ _:genid183
 _:genid187
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:lastFirstBeforeAfter-TheGap ;
+  swrl:propertyPredicate traffic:lastFirstBeforeAfter-TheGap ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid188
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:beforeTheGap ;
+  swrl:propertyPredicate traffic:beforeTheGap ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid190
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
+  swrl:classPredicate traffic:AfterGap ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -928,19 +928,19 @@ _:genid190
 
 _:genid193
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:LastBeforeGap ;
+  swrl:classPredicate traffic:LastBeforeGap ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid195
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:beforeTheGap ;
+  swrl:propertyPredicate traffic:beforeTheGap ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid197
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:lastFirstBeforeAfter-TheGap ;
+  swrl:propertyPredicate traffic:lastFirstBeforeAfter-TheGap ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -956,35 +956,35 @@ _:genid197
 
 _:genid200
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid202
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid206
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid208
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid209
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid210
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -999,36 +999,36 @@ _:genid210
 
 _:genid213
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid216
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid220
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid221
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid222
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid223
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1042,24 +1042,24 @@ _:genid223
 _:genid227
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:hasSpaceBehind ;
+  swrl:propertyPredicate traffic:hasSpaceBehind ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid229
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:hasSpaceLateral ;
+  swrl:propertyPredicate traffic:hasSpaceLateral ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid230
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:hasSpaceAhead ;
+  swrl:propertyPredicate traffic:hasSpaceAhead ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid232
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
+  swrl:classPredicate traffic:NoSpace ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -1075,36 +1075,36 @@ _:genid232
 
 _:genid235
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 _:genid237
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid239
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid242
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid243
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid245
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1117,23 +1117,23 @@ _:genid245
 
 _:genid248
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
+  swrl:classPredicate traffic:NoSpace ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid250
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:classPredicate traffic:NotOvertaker ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid252
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:isInFrontOfOvertaker ;
+  swrl:propertyPredicate traffic:isInFrontOfOvertaker ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid254
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
+  swrl:classPredicate traffic:SoftAccelerate ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -1149,35 +1149,35 @@ _:genid254
 
 _:genid257
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid259
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid263
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithOvertaker .
 
 _:genid264
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid265
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid267
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1191,29 +1191,29 @@ _:genid267
 
 _:genid270
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 _:genid273
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:FirstAfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:FirstAfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid275
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid277
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid278
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1228,28 +1228,28 @@ _:genid278
 _:genid284
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid285
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid286
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid287
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:FirstAfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:FirstAfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid289
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1263,29 +1263,29 @@ _:genid289
 
 _:genid293
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid296
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid297
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid298
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid300
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1300,35 +1300,35 @@ _:genid300
 
 _:genid304
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:FirstAfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:FirstAfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid308
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid309
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid310
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid311
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid313
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1343,35 +1343,35 @@ _:genid313
 
 _:genid316
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid320
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid323
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid324
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:isInFrontOfOvertaker .
 
 _:genid325
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid326
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1383,18 +1383,18 @@ _:genid326
 
 _:genid329
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Vehicle ;
+  swrl:classPredicate traffic:Vehicle ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid331
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:isOvertaking ;
+  swrl:propertyPredicate traffic:isOvertaking ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid333
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
+  swrl:classPredicate traffic:Overtaker ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -1410,36 +1410,36 @@ _:genid333
 
 _:genid336
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid339
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid343
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid344
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid345
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid346
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1454,36 +1454,36 @@ _:genid346
 
 _:genid349
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid354
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid356
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid357
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid358
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid359
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1497,24 +1497,24 @@ _:genid359
 _:genid363
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:hasSpaceBehind ;
+  swrl:propertyPredicate traffic:hasSpaceBehind ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid365
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:hasSpaceLateral ;
+  swrl:propertyPredicate traffic:hasSpaceLateral ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid366
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:hasSpaceAhead ;
+  swrl:propertyPredicate traffic:hasSpaceAhead ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid368
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
+  swrl:classPredicate traffic:Behind ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -1530,36 +1530,36 @@ _:genid368
 
 _:genid371
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid374
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid377
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid378
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid379
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid381
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1573,29 +1573,29 @@ _:genid381
 
 _:genid384
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid386
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid389
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid390
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid392
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1611,34 +1611,34 @@ _:genid392
 _:genid398
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid400
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithOvertaker .
 
 _:genid401
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid402
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid403
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid405
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1652,29 +1652,29 @@ _:genid405
 
 _:genid408
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainDistanceWithCarInFront ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainDistanceWithCarInFront ;
+  swrl:argument1 traffic:c .
 
 _:genid411
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid414
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid415
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid416
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:LastBeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:LastBeforeGap ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1689,36 +1689,36 @@ _:genid416
 
 _:genid420
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid422
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid425
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid426
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid427
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid429
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1732,28 +1732,28 @@ _:genid429
 
 _:genid433
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
+  swrl:classPredicate traffic:Lateral ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid435
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:classPredicate traffic:NotOvertaker ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid437
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "faster"^^xsd:string ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid438
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
+  swrl:classPredicate traffic:AfterGap ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid440
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
+  swrl:classPredicate traffic:MaintainSpeed ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -1768,29 +1768,29 @@ _:genid440
 
 _:genid444
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:LastBeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:LastBeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid446
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid448
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithOvertaker .
 
 _:genid449
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid451
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1806,41 +1806,41 @@ _:genid451
 
 _:genid456
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid459
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:isInFrontOfOvertaker .
 
 _:genid461
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid462
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid463
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid464
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid466
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1854,29 +1854,29 @@ _:genid466
 
 _:genid469
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 _:genid472
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid474
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid476
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid477
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1891,35 +1891,35 @@ _:genid477
 
 _:genid480
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid482
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid484
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid488
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid489
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:isInFrontOfOvertaker .
 
 _:genid490
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1933,30 +1933,30 @@ _:genid490
 
 _:genid494
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid497
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid498
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid499
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 _:genid501
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -1971,36 +1971,36 @@ _:genid501
 
 _:genid504
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid507
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid509
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid512
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid513
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid514
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2015,28 +2015,28 @@ _:genid514
 _:genid520
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid521
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid522
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:FirstAfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:FirstAfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid523
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid525
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2051,36 +2051,36 @@ _:genid525
 
 _:genid528
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid530
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid532
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid535
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid536
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid538
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2094,29 +2094,29 @@ _:genid538
 
 _:genid541
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid543
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid545
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid547
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid549
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2130,29 +2130,29 @@ _:genid549
 
 _:genid552
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainDistanceWithCarInFront ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainDistanceWithCarInFront ;
+  swrl:argument1 traffic:c .
 
 _:genid555
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:LastBeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:LastBeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid557
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid559
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid560
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2166,29 +2166,29 @@ _:genid560
 
 _:genid565
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid567
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid568
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid569
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid571
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2202,29 +2202,29 @@ _:genid571
 
 _:genid574
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 _:genid577
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid579
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid581
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid582
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2240,41 +2240,41 @@ _:genid582
 
 _:genid587
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid590
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:isInFrontOfOvertaker .
 
 _:genid592
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid593
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid594
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid595
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid597
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2288,29 +2288,29 @@ _:genid597
 
 _:genid601
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid603
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid605
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid606
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid608
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2325,35 +2325,35 @@ _:genid608
 
 _:genid611
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid615
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid618
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid619
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid620
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid621
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2368,36 +2368,36 @@ _:genid621
 
 _:genid624
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid627
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid629
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid632
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid633
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid634
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2412,36 +2412,36 @@ _:genid634
 
 _:genid637
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid642
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid643
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid644
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid645
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid647
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2456,36 +2456,36 @@ _:genid647
 
 _:genid650
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid656
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid657
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid658
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid659
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid660
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2500,35 +2500,35 @@ _:genid660
 
 _:genid665
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid667
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid669
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithOvertaker .
 
 _:genid670
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:LastBeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:LastBeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid671
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid673
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2543,35 +2543,35 @@ _:genid673
 
 _:genid677
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid680
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid682
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid683
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid684
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid686
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2585,29 +2585,29 @@ _:genid686
 
 _:genid689
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid692
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid694
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithOvertaker .
 
 _:genid695
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid697
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2621,29 +2621,29 @@ _:genid697
 
 _:genid700
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid703
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid705
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithOvertaker .
 
 _:genid706
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid708
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2658,36 +2658,36 @@ _:genid708
 
 _:genid711
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid713
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid716
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid719
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid720
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid721
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2700,24 +2700,24 @@ _:genid721
 
 _:genid724
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid727
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid729
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid730
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2732,35 +2732,35 @@ _:genid730
 
 _:genid733
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid736
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid738
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid740
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:isInFrontOfOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:isInFrontOfOvertaker .
 
 _:genid742
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid743
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:AfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:AfterGap ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2774,30 +2774,30 @@ _:genid743
 
 _:genid747
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid750
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid751
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid752
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 _:genid754
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2812,35 +2812,35 @@ _:genid754
 
 _:genid757
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid760
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid763
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid765
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid766
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid767
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:FirstAfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:FirstAfterGap ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2855,35 +2855,35 @@ _:genid767
 
 _:genid770
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid772
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:FirstAfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:FirstAfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid774
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid777
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid779
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid780
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2897,30 +2897,30 @@ _:genid780
 
 _:genid783
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 _:genid786
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid789
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid790
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid791
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2934,23 +2934,23 @@ _:genid791
 _:genid796
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid797
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid798
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid800
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -2963,23 +2963,23 @@ _:genid800
 
 _:genid803
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
+  swrl:classPredicate traffic:NoSpace ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid805
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:classPredicate traffic:NotOvertaker ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid807
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:isInFrontOfOvertaker ;
+  swrl:propertyPredicate traffic:isInFrontOfOvertaker ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid809
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
+  swrl:classPredicate traffic:SoftDecelerate ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -2994,30 +2994,30 @@ _:genid809
 
 _:genid812
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid814
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid816
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid818
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid820
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:MaintainSpeed ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:MaintainSpeed ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3031,30 +3031,30 @@ _:genid820
 
 _:genid824
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid826
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid828
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid829
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 _:genid831
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3068,30 +3068,30 @@ _:genid831
 
 _:genid834
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid837
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid840
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid841
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid842
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3106,35 +3106,35 @@ _:genid842
 
 _:genid846
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid848
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid851
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid852
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid853
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid855
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3149,36 +3149,36 @@ _:genid855
 
 _:genid858
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NoSpace ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NoSpace ;
+  swrl:argument1 traffic:c .
 
 _:genid863
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid864
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid865
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid866
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid868
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3193,36 +3193,36 @@ _:genid868
 
 _:genid871
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid875
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid877
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid878
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid879
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid881
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3237,36 +3237,36 @@ _:genid881
 
 _:genid884
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid886
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid888
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid890
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid892
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid894
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3281,35 +3281,35 @@ _:genid894
 
 _:genid899
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid901
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid903
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithOvertaker .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithOvertaker .
 
 _:genid904
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:LastBeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:LastBeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid905
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid907
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Decelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Decelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3322,17 +3322,17 @@ _:genid907
 _:genid911
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:isOvertaking ;
+  swrl:propertyPredicate traffic:isOvertaking ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid912
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Vehicle ;
+  swrl:classPredicate traffic:Vehicle ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid914
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
+  swrl:classPredicate traffic:NotOvertaker ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -3348,35 +3348,35 @@ _:genid914
 
 _:genid919
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid921
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid923
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid924
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Lateral ;
+  swrl:argument1 traffic:c .
 
 _:genid925
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:BeforeGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:BeforeGap ;
+  swrl:argument1 traffic:c .
 
 _:genid927
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3391,35 +3391,35 @@ _:genid927
 
 _:genid930
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid932
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
 
 _:genid934
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:FirstAfterGap ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:FirstAfterGap ;
+  swrl:argument1 traffic:c .
 
 _:genid936
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:NotOvertaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:NotOvertaker ;
+  swrl:argument1 traffic:c .
 
 _:genid939
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid940
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3433,30 +3433,30 @@ _:genid940
 
 _:genid943
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftAccelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftAccelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid945
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid948
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid950
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid951
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3465,13 +3465,13 @@ _:genid951
 
 _:genid954
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Lateral ;
+  swrl:classPredicate traffic:Lateral ;
   swrl:argument1 <urn:swrl#c> .
 
 _:genid956
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 true ;
-  swrl:propertyPredicate ns1:hasSpaceLateral ;
+  swrl:propertyPredicate traffic:hasSpaceLateral ;
   swrl:argument1 <urn:swrl#c> .
 
 []
@@ -3487,36 +3487,36 @@ _:genid956
 
 _:genid959
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Behind ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Behind ;
+  swrl:argument1 traffic:c .
 
 _:genid961
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid964
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "3"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithAheadCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithAheadCar .
 
 _:genid966
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "2"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBehindCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBehindCar .
 
 _:genid967
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 false ;
-  swrl:propertyPredicate ns1:bigSpeedDifference ;
-  swrl:argument1 ns1:c .
+  swrl:propertyPredicate traffic:bigSpeedDifference ;
+  swrl:argument1 traffic:c .
 
 _:genid969
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:SoftDecelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:SoftDecelerate ;
+  swrl:argument1 traffic:c .
 
 []
   a swrl:Imp ;
@@ -3529,21 +3529,21 @@ _:genid969
 
 _:genid972
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Accelerate ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Accelerate ;
+  swrl:argument1 traffic:c .
 
 _:genid976
   a swrl:DatavaluedPropertyAtom ;
   swrl:argument2 "1"^^xsd:long ;
-  swrl:argument1 ns1:c ;
-  swrl:propertyPredicate ns1:speedWithBeforeTheGapCar .
+  swrl:argument1 traffic:c ;
+  swrl:propertyPredicate traffic:speedWithBeforeTheGapCar .
 
 _:genid977
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Overtaker ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Overtaker ;
+  swrl:argument1 traffic:c .
 
 _:genid978
   a swrl:ClassAtom ;
-  swrl:classPredicate ns1:Ahead ;
-  swrl:argument1 ns1:c .
+  swrl:classPredicate traffic:Ahead ;
+  swrl:argument1 traffic:c .
