@@ -10,7 +10,7 @@
 <http://purl.org/iot/vocab/bonsai>
   a owl:Ontology ;
   owl:versionIRI <http://purl.org/iot/vocab/bonsai> ;
-  dcterms:modified "2015-06-06";
+  dcterms:modified "2015-06-06"^^xsd:date;
   dcterms:contributor "Ghislain Atemezing", "Amelie Gyrard";
   rdfs:seeAlso <http://purl.org/iot/vocab/bonsai> ;
   owl:imports <http://www.daml.org/services/owl-s/1.2/Service.owl>, <http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl> .
