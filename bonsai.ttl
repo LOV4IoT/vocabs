@@ -3,9 +3,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dctems: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix bonsai: <http://purl.org/iot/vocab/bonsai#> .
 
-####metadata here ###
+#### metadata here ###
 
 <http://purl.org/iot/vocab/bonsai>
   a owl:Ontology ;
@@ -13,6 +14,8 @@
   dcterms:modified "2015-06-06"^^xsd:date;
   dcterms:contributor "Ghislain Atemezing", "Amelie Gyrard";
   rdfs:seeAlso <http://purl.org/iot/vocab/bonsai> ;
+  vann:preferredNamespaceUri "http://purl.org/iot/vocab/bonsai#" ;
+  vann:preferredNamespacePrefix "bonsai" ;
   owl:imports <http://www.daml.org/services/owl-s/1.2/Service.owl>, <http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl> .
 
 ##########
