@@ -17,7 +17,7 @@
   dc:issued "2012-01-21"^^xsd:date ;
   dc:modified "2012-09-07"^^xsd:date ;
   dc:modified "2015-06-06"^^xsd:date ;
-  vann:preferredNamespaceUri "http://purl.org/iot/vocab/traffic#" ;
+  vann:preferredNamespaceUri <http://purl.org/iot/vocab/traffic#> ;
   vann:preferredNamespacePrefix "traffic" ;
   rdfs:comment " An ontology to describe the management of the traffic" ;
   dcterms:description "A traffic ontology that describes the management of the traffic in a straight road with two lanes, both in the same direction. The situation is an ambulance trying to overtake all the other cars and they have to modify their speed and positions in order to able the ambulance to pass as fast as possible."@en ;
