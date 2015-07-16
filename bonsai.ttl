@@ -10,7 +10,7 @@
 
 <http://purl.org/iot/vocab/bonsai>
   a owl:Ontology ;
-  owl:versionIRI <http://purl.org/iot/vocab/bonsai> ;
+  owl:versionInfo 1.0  ;
   dcterms:modified "2015-07-15"^^xsd:date;
   dcterms:contributor "Ghislain Atemezing", "Amelie Gyrard";
   rdfs:seeAlso <http://purl.org/iot/vocab/bonsai> ;
